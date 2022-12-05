@@ -5,7 +5,8 @@ import Menu from './components/Menu';
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 
-export default function Home({ keynotes }) {
+export default function Home(props: any) {
+  const { keynotes } = props;
 
   return <div className='w-full h-screen flex flex-col'>
     <Header/>
