@@ -15,9 +15,9 @@ export default function Keynote(props: any) {
     }
     </div>
     <div>
-      <p className='font-bold'>{item.theme}</p>
-      <p>{item.date}</p>
-      <p>{item.speaker}</p>
+      <p className='font-bold'>{item?.theme}</p>
+      <p>{item?.date}</p>
+      <p>{item?.speaker}</p>
     </div>
    
   </div>
