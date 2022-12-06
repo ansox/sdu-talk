@@ -20,5 +20,7 @@ export default async function handler(
     query: KEYNOTES_QUERY,
   });
 
+  console.log(keynotes);
+
   res.status(200).json(keynotes);
 }
