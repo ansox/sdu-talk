@@ -14,11 +14,12 @@ export default function Keynote(props: any) {
       !!item && !!item.photo && <Image className='rounded-full' loader={imgLoader} src={item.photo.url} width="60" height="60" alt="profile pic"/>
     }
     </div>
-    <div>
-      <p className='font-bold'>{item?.theme}</p>
-      <p>{item?.date}</p>
-      <p>{item?.speaker}</p>
-    </div>
-   
+    { !!item &&
+      <div>
+        <p className='font-bold'>{item?.theme}</p>
+        <p>{item?.date}</p>
+        <p>{item?.speaker}</p>
+      </div>
+    }
   </div>
 }
