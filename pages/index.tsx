@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import Keynote from '../components/Keynote';
 import Menu from '../components/Menu';
+import { request } from '../lib/datocms';
 
 
 export default function Home(props: any) {
@@ -17,8 +18,27 @@ export default function Home(props: any) {
   </div>;
 }
 
+async function loadKeynotes() {
+  const KEYNOTES_QUERY = `query MyQuery {
+    allKeynotes {
+      date
+      speaker
+      theme
+      photo {
+        url
+      }
+    }
+  }`;
+
+  const keynotes = await request({
+    query: KEYNOTES_QUERY,
+  });  
+
+  return keynotes;
+}
+
 export async function getStaticProps() {
-  const keynotes = await (await fetch('http://localhost:3000/api/keynotes')).json();
+  const keynotes = await loadKeynotes();
   
   return {
     props: { keynotes }
