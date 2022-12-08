@@ -1,8 +1,6 @@
-import Header from './components/Header';
-import Keynote from './components/Keynote';
-import Menu from './components/Menu';
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
+import Header from '../components/Header';
+import Keynote from '../components/Keynote';
+import Menu from '../components/Menu';
 
 
 export default function Home(props: any) {
