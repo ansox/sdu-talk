@@ -7,7 +7,7 @@ import { request } from '../lib/datocms';
 export default function Home(props: any) {
   const { keynotes } = props;
 
-  return <div className='w-full h-screen flex flex-col'>
+  return <>
     <Header/>
     <Menu />
     {
@@ -15,7 +15,7 @@ export default function Home(props: any) {
         return <Keynote key={keynote.theme} item={keynote} />
       })
     }
-  </div>;
+  </>;
 }
 
 async function loadKeynotes() {
