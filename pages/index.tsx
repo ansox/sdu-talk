@@ -7,7 +7,7 @@ export default function Home(props: any) {
   React.useEffect(() => {
     const timer = setTimeout(() => {
       router.push('/welcome');
-    }, 5000);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
