@@ -1,15 +1,10 @@
-import Header from '../components/Header';
 import Keynote from '../components/Keynote';
-import Menu from '../components/Menu';
 import { request } from '../lib/datocms';
 
 
 export default function Home(props: any) {
   const { keynotes } = props;
-
   return <>
-    <Header/>
-    <Menu />
     {
       keynotes.allKeynotes.map((keynote: any)=> {
         return <Keynote key={keynote.theme} item={keynote} />
