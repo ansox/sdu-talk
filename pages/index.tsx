@@ -1,41 +1,21 @@
-import Keynote from '../components/Keynote';
-import { request } from '../lib/datocms';
-
+import { useRouter } from "next/router";
+import React from "react";
 
 export default function Home(props: any) {
-  const { keynotes } = props;
-  return <>
-    {
-      keynotes.allKeynotes.map((keynote: any)=> {
-        return <Keynote key={keynote.theme} item={keynote} />
-      })
+  const router = useRouter();
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push('/welcome');
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
     }
-  </>;
-}
+  })
 
-async function loadKeynotes() {
-  const KEYNOTES_QUERY = `query MyQuery {
-    allKeynotes {
-      date
-      speaker
-      theme
-      photo {
-        url
-      }
-    }
-  }`;
-
-  const keynotes = await request({
-    query: KEYNOTES_QUERY,
-  });  
-
-  return keynotes;
-}
-
-export async function getStaticProps() {
-  const keynotes = await loadKeynotes();
-  
-  return {
-    props: { keynotes }
-  };
+  return <div className="bg-[#ffcc00] w-full flex h-screen flex-col items-center gap-4 pt-52">
+    <h1 className="text-5xl antialiased	font-semibold">SDU Talks</h1>
+  </div>
+ 
 }
