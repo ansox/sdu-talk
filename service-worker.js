@@ -64,7 +64,7 @@ registerRoute(
 registerRoute(
   '/message-board',
   new NetworkFirst({
-    cacheName: 'message-board',
+    cacheName: 'messageboard',
     plugins: [
       new ExpirationPlugin({
         maxEntries: 1,
