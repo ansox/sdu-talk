@@ -4,9 +4,20 @@ import React from "react";
 export default function Home(props: any) {
   const router = useRouter();
 
+  function hasName(): boolean {
+    const name = localStorage.getItem('name');
+
+    return !!name;
+  }
+
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      router.push('/welcome');
+      if (hasName()) {
+        router.push('/keynotes');
+      }
+      else {
+        router.push('/welcome');
+      }
     }, 2000);
 
     return () => {
