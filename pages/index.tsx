@@ -15,7 +15,10 @@ export default function Home(props: any) {
   })
 
   return <div className="bg-[#ffcc00] w-full flex h-screen flex-col items-center gap-4 pt-52">
-    <h1 className="text-5xl antialiased	font-semibold">SDU Talks</h1>
+    <div>
+      <h1 className="text-4xl antialiased	font-semibold">SDU</h1>
+      <h1 className="text-8xl antialiased	font-semibold">Talks</h1>
+    </div>
   </div>
  
 }

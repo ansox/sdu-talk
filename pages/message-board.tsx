@@ -1,3 +1,6 @@
+import { useRouter } from "next/router";
+import MessageBox from "../components/MessageBox";
+import StyledButton from "../components/StyledButton";
 import { request } from "../lib/datocms";
 
 function formatDate(date: string) {
@@ -6,19 +9,20 @@ function formatDate(date: string) {
 }
 
 async function loadMessages() {
-  const MESSAGES_QUERY = `query MyQuery {
-    allMessages(orderBy: _createdAt_DESC) {
+  const MESSAGES_QUERY = `query Keynotes {
+    messageBoards(orderBy: updatedAt_DESC) {
       name
       message
       updatedAt
     }
-  }`;
+  }
+  `;
 
   const messages = await request({
     query: MESSAGES_QUERY,
   });  
 
-  return messages.allMessages.map((item: any) => {
+  return messages.messageBoards.map((item: any) => {
     return {
       ...item,
       updatedAt: formatDate(item.updatedAt)
@@ -27,18 +31,18 @@ async function loadMessages() {
 }
 
 export default function MessageBoard(props: any) {
+  const router = useRouter();
+
   const { messages } = props;
 
   return <>
+    <section className="w-full py-4 flex justify-center items-center">
+      <StyledButton onClick={() => router.push('/message')}>Enviar mensagem</StyledButton>
+    </section>
+
     {
       messages.map((item: any) => {
-        return <div key={`message${item.updatedAt}`} className="bg-[#ffcc00] mt-3 mx-3 p-4 rounded-2xl shadow">
-          <p className="font-extralight	text-slate-600">{item.message}</p>
-          <section className="flex flex-col items-end">
-            <p className="font-semibold	antialiased text-slate-600">{item.name}</p>
-            <p className="font-semibold	antialiased text-slate-600">{item.updatedAt}</p>
-          </section>
-        </div>
+        return <MessageBox key={`message${item.updatedAt}`} item={item} />
       })
     }
   </>

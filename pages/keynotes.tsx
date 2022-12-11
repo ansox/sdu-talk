@@ -6,7 +6,7 @@ export default function Keynotes(props: any) {
   const { keynotes } = props;
   return <>
     {
-      keynotes.allKeynotes.map((keynote: any)=> {
+      keynotes.keynotes.map((keynote: any)=> {
         return <Keynote key={keynote.theme} item={keynote} />
       })
     }
@@ -14,8 +14,8 @@ export default function Keynotes(props: any) {
 }
 
 async function loadKeynotes() {
-  const KEYNOTES_QUERY = `query MyQuery {
-    allKeynotes(orderBy: date_ASC) {
+  const KEYNOTES_QUERY = `query Keynotes {
+    keynotes {
       date
       speaker
       theme
@@ -23,11 +23,15 @@ async function loadKeynotes() {
         url
       }
     }
-  }`;
+  }
+  `;
 
   const keynotes = await request({
     query: KEYNOTES_QUERY,
   });  
+
+  console.log(keynotes);
+  
 
   return keynotes;
 }
