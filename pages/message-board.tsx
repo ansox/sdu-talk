@@ -18,7 +18,7 @@ async function loadMessages() {
     query: MESSAGES_QUERY,
   });  
 
-  return messages.allMessages.map(item => {
+  return messages.allMessages.map((item: any) => {
     return {
       ...item,
       updatedAt: formatDate(item.updatedAt)
@@ -31,7 +31,7 @@ export default function MessageBoard(props: any) {
 
   return <>
     {
-      messages.map(item => {
+      messages.map((item: any) => {
         return <div key={`message${item.updatedAt}`} className="bg-[#ffcc00] mt-3 mx-3 p-4 rounded-2xl shadow">
           <p className="font-extralight	text-slate-600">{item.message}</p>
           <section className="flex flex-col items-end">
