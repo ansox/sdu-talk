@@ -34,6 +34,62 @@ registerRoute(
   'GET'
 );
 registerRoute(
+  '/welcome',
+  new NetworkFirst({
+    cacheName: 'welcome',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 1,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  '/keynotes',
+  new NetworkFirst({
+    cacheName: 'keynotes',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 1,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  '/message-board',
+  new NetworkFirst({
+    cacheName: 'message-board',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 1,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  '/message',
+  new NetworkFirst({
+    cacheName: 'message',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 1,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
   /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
   new CacheFirst({
     cacheName: 'google-fonts',
