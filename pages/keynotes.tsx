@@ -29,10 +29,7 @@ async function loadKeynotes() {
   const keynotes = await request({
     query: KEYNOTES_QUERY,
   });  
-
-  console.log(keynotes);
   
-
   return keynotes;
 }
 
