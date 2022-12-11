@@ -15,7 +15,7 @@ export default function Keynotes(props: any) {
 
 async function loadKeynotes() {
   const KEYNOTES_QUERY = `query MyQuery {
-    allKeynotes {
+    allKeynotes(orderBy: date_ASC) {
       date
       speaker
       theme

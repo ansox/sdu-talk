@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 export default function Layout(props: any) {
   const router = useRouter();
 
-  console.log(router.pathname);
-
   const showHeader = router.pathname !== '/welcome' &&  router.pathname !== '/';
 
   return (
