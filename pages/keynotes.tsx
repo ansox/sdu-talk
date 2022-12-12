@@ -1,4 +1,5 @@
 import Keynote from '../components/Keynote';
+import { formatDate } from '../lib/date_util';
 import { request } from '../lib/datocms';
 
 
@@ -6,7 +7,7 @@ export default function Keynotes(props: any) {
   const { keynotes } = props;
   return <>
     {
-      keynotes.keynotes.map((keynote: any)=> {
+      keynotes.map((keynote: any)=> {
         return <Keynote key={keynote.theme} item={keynote} />
       })
     }
@@ -15,7 +16,7 @@ export default function Keynotes(props: any) {
 
 async function loadKeynotes() {
   const KEYNOTES_QUERY = `query Keynotes {
-    keynotes {
+    keynotes(orderBy: date_ASC) {
       date
       speaker
       theme
@@ -30,7 +31,12 @@ async function loadKeynotes() {
     query: KEYNOTES_QUERY,
   });  
   
-  return keynotes;
+  return keynotes.keynotes.map((item: any) => {
+    return {
+      ...item, 
+      date: formatDate(item.date)
+    }
+  });
 }
 
 export async function getStaticProps() {

@@ -1,12 +1,8 @@
 import { useRouter } from "next/router";
 import MessageBox from "../components/MessageBox";
 import StyledButton from "../components/StyledButton";
+import { formatDate } from "../lib/date_util";
 import { request } from "../lib/datocms";
-
-function formatDate(date: string) {
-  const formated = new Date(date);
-  return formated.toLocaleDateString('pt-BR') + ' ' + formated.toLocaleTimeString('pt-BR');
-}
 
 async function loadMessages() {
   const MESSAGES_QUERY = `query Keynotes {

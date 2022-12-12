@@ -16,6 +16,14 @@ WB_MANIFEST.push({
   url: '/fallback',
   revision: '1234567890',
 });
+WB_MANIFEST.push({
+  url: '/keynotes',
+  revision: '1234567890',
+});
+WB_MANIFEST.push({
+  url: '/message-board',
+  revision: '1234567890',
+});
 precacheAndRoute(WB_MANIFEST);
 
 cleanupOutdatedCaches();
