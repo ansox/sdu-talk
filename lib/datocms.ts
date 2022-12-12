@@ -1,6 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 
-export function request({ query }) {
+export function request(props: any) {
+  const { query } = props;
   const headers = {
     authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
     "gcms-stage":"PUBLISHED"
