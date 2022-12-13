@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import React from "react";
 import { initFirebase } from "../lib/firebase-messaging";
 
-
 export default function Home(props: any) {
   const router = useRouter();
 
@@ -18,6 +17,7 @@ export default function Home(props: any) {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.addEventListener("message", (event) => {
         console.log("event for the service worker", event);
+        alert(event.data.firebaseMessaging.payload.notification.body)
       });
     }
     
