@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
+import { initFirebase } from "../lib/firebase-messaging";
+
 
 export default function Home(props: any) {
   const router = useRouter();
@@ -11,6 +13,8 @@ export default function Home(props: any) {
   }
 
   React.useEffect(() => {
+    initFirebase();
+    
     const timer = setTimeout(() => {
       if (hasName()) {
         router.push('/keynotes');
