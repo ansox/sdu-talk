@@ -14,6 +14,12 @@ export default function Home(props: any) {
 
   React.useEffect(() => {
     initFirebase();
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.addEventListener("message", (event) => {
+        console.log("event for the service worker", event);
+      });
+    }
     
     const timer = setTimeout(() => {
       if (hasName()) {
