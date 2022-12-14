@@ -11,13 +11,13 @@
 "orientation": "any",
 "icons": [
   {
-    "src": "https://www.pwabuilder.com/assets/icons/icon_512.png",
+    "src": "https://firebasestorage.googleapis.com/v0/b/sdu-talks.appspot.com/o/icon.png?alt=media&token=dee8ad6c-53f4-4c0c-a35f-d3820e4a08f1",
     "sizes": "512x512",
     "type": "image/png",
     "purpose": "maskable"
   },
   {
-    "src": "https://www.pwabuilder.com/assets/icons/icon_192.png",
+    "src": "https://firebasestorage.googleapis.com/v0/b/sdu-talks.appspot.com/o/icon-small.png?alt=media&token=46bf0255-5208-47da-89d5-129dd0fe4926",
     "sizes": "192x192",
     "type": "image/png",
     "purpose": "any"

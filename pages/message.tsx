@@ -15,12 +15,22 @@ export default function Message() {
       message,
       name
     }
-    const result = await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(body)
-    })
 
-    return result;
+    try {
+      const result = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(body)
+      })
+
+      if (!result.ok) {
+        throw new Error('Sem conexão no momento');
+      }
+
+      return result;
+    }
+    catch(error) {
+      alert('Sem conexão no momento');
+    }
   }
 
   function handlerMessage(ev: any) {
