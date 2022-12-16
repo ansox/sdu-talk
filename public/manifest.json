@@ -6,8 +6,8 @@
 "description": "A description for your application",
 "lang": " The default language of your application",
 "dir": "ltr",
-"theme_color": "#ffcc00",
-"background_color": "#ffcc00",
+"theme_color": "#ffc800",
+"background_color": "#ffc800",
 "orientation": "any",
 "icons": [
   {

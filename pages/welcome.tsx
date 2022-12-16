@@ -23,7 +23,7 @@ export default function Welcome() {
   }
 
   const router = useRouter();
-  return <div className="bg-[#ffcc00] w-full flex h-screen flex-col items-center gap-4 pt-44">
+  return <div className="bg-[#ffc800] w-full flex h-screen flex-col items-center gap-4 pt-44">
     <p className="text-xl antialiased	font-semibold">Olá! Como você se chama?</p>
     <StyledInput onChange={handlerInputChange} />
     {
